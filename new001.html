@@ -1,0 +1,245 @@
+1	 
+2	<!DOCTYPE html> 
+3	<html lang="es"> 
+4	<head> 
+5	    <meta charset="UTF-8"> 
+6	    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+7	    <title>MACRO SONIC | Laboratorio de Sonido</title> 
+8	    <!-- Bootstrap 5 CSS --> 
+9	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
+10	    <!-- Google Fonts --> 
+11	    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet"> 
+12	    <style> 
+13	        :root { 
+14	            --bg-deep: #0a0b10; 
+15	            --bg-card: #141620; 
+16	            --accent-sonic: #00f2ff; 
+17	            --accent-glow: #7000ff; 
+18	            --text-main: #b0b4c8; 
+19	            --cremita: #f2e9d9; 
+20	            --cremita-muted: #d9ceb8; 
+21	        } 
+22	 
+23	        body { 
+24	            background-color: var(--bg-deep); 
+25	            color: var(--text-main); 
+26	            font-family: 'Outfit', sans-serif; 
+27	            margin: 0; 
+28	            padding: 0; 
+29	        } 
+30	 
+31	        /* Navbar personalizada */ 
+32	        .navbar { 
+33	            background-color: rgba(10, 11, 16, 0.95); 
+34	            border-bottom: 1px solid #2a2d3e; 
+35	            padding: 1rem 2rem; 
+36	        } 
+37	 
+38	        .navbar-brand { 
+39	            font-family: 'Share Tech Mono', monospace; 
+40	            color: var(--accent-sonic) !important; 
+41	            font-weight: 800; 
+42	            letter-spacing: 2px; 
+43	            font-size: 1.5rem; 
+44	        } 
+45	 
+46	        /* Hero Section */ 
+47	        .hero-section { 
+48	            padding: 100px 0 60px; 
+49	            background: linear-gradient(180deg, #0a0b10 0%, #141620 100%); 
+50	            text-align: center; 
+51	        } 
+52	 
+53	        .hero-title { 
+54	            font-size: 3.5rem; 
+55	            font-weight: 800; 
+56	            color: var(--cremita); 
+57	            margin-bottom: 1rem; 
+58	            text-transform: uppercase; 
+59	        } 
+60	 
+61	        .hero-subtitle { 
+62	            font-size: 1.2rem; 
+63	            color: var(--accent-sonic); 
+64	            font-family: 'Share Tech Mono', monospace; 
+65	        } 
+66	 
+67	        /* Sección de Carga (Upload) */ 
+68	        .upload-container { 
+69	            background-color: var(--bg-card); 
+70	            border: 2px dashed #3a3f58; 
+71	            border-radius: 20px; 
+72	            padding: 40px; 
+73	            margin-top: -50px; 
+74	            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+75	            transition: border-color 0.3s; 
+76	        } 
+77	 
+78	        .upload-container:hover { 
+79	            border-color: var(--accent-sonic); 
+80	        } 
+81	 
+82	        .form-label { 
+83	            color: var(--cremita-muted); 
+84	            font-weight: 600; 
+85	            margin-bottom: 0.5rem; 
+86	        } 
+87	 
+88	        .form-control { 
+89	            background-color: #0a0b10; 
+90	            border: 1px solid #3a3f58; 
+91	            color: var(--cremita); 
+92	            border-radius: 10px; 
+93	            padding: 12px; 
+94	        } 
+95	 
+96	        .form-control:focus { 
+97	            background-color: #0d0f1a; 
+98	            border-color: var(--accent-sonic); 
+99	            color: var(--cremita); 
+100	            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2); 
+101	        } 
+102	 
+103	        .btn-sonic { 
+104	            background-color: var(--accent-sonic); 
+105	            color: #0a0b10; 
+106	            font-weight: 800; 
+107	            border: none; 
+108	            padding: 12px 30px; 
+109	            border-radius: 10px; 
+110	            text-transform: uppercase; 
+111	            transition: all 0.3s; 
+112	            width: 100%; 
+113	            margin-top: 20px; 
+114	        } 
+115	 
+116	        .btn-sonic:hover { 
+117	            background-color: #00d8e6; 
+118	            transform: translateY(-2px); 
+119	            box-shadow: 0 5px 15px rgba(0, 242, 255, 0.4); 
+120	        } 
+121	 
+122	        /* Footer */ 
+123	        footer { 
+124	            padding: 40px 0; 
+125	            text-align: center; 
+126	            font-size: 0.9rem; 
+127	            color: #5a5f7d; 
+128	            border-top: 1px solid #2a2d3e; 
+129	            margin-top: 60px; 
+130	        } 
+131	 
+132	        .sonic-wave { 
+133	            height: 4px; 
+134	            background: linear-gradient(90deg, var(--accent-glow), var(--accent-sonic), var(--accent-glow)); 
+135	            width: 100%; 
+136	            position: fixed; 
+137	            bottom: 0; 
+138	        } 
+139	 
+140	        /* Estudiantes de sonido: Visualizador Ficticio */ 
+141	        .visualizer-mock { 
+142	            display: flex; 
+143	            align-items: center; 
+144	            justify-content: center; 
+145	            gap: 4px; 
+146	            height: 40px; 
+147	            margin: 20px 0; 
+148	        } 
+149	 
+150	        .bar { 
+151	            width: 4px; 
+152	            background-color: var(--accent-sonic); 
+153	            border-radius: 2px; 
+154	            animation: bounce 1s infinite alternate; 
+155	        } 
+156	 
+157	        @keyframes bounce { 
+158	            from { height: 5px; } 
+159	            to { height: 30px; } 
+160	        } 
+161	    </style> 
+162	</head> 
+163	<body> 
+164	 
+165	    <!-- Navegación --> 
+166	    <nav class="navbar navbar-expand-lg sticky-top"> 
+167	        <div class="container"> 
+168	            <a class="navbar-brand" href="#">MACRO SONIC</a> 
+169	            <div class="ms-auto"> 
+170	                <span class="badge rounded-pill bg-dark border border-secondary text-info">STUDIO MODE</span> 
+171	            </div> 
+172	        </div> 
+173	    </nav> 
+174	 
+175	    <!-- Hero --> 
+176	    <header class="hero-section"> 
+177	        <div class="container"> 
+178	            <div class="visualizer-mock"> 
+179	                <div class="bar" style="animation-delay: 0.1s"></div> 
+180	                <div class="bar" style="animation-delay: 0.3s"></div> 
+181	                <div class="bar" style="animation-delay: 0.2s"></div> 
+182	                <div class="bar" style="animation-delay: 0.5s"></div> 
+183	                <div class="bar" style="animation-delay: 0.4s"></div> 
+184	            </div> 
+185	            <h1 class="hero-title">Encuentra tu Sonido</h1> 
+186	            <p class="hero-subtitle">MANDANOS TU DEMO • MEZCLA • MASTERIZACIÓN</p> 
+187	        </div> 
+188	    </header> 
+189	 
+190	    <!-- Contenido Principal --> 
+191	    <main class="container"> 
+192	        <div class="row justify-content-center"> 
+193	            <div class="col-lg-6 col-md-8"> 
+194	                <div class="upload-container"> 
+195	                    <h3 class="text-center mb-4" style="color: var(--cremita);">PORTAL DE CARGA</h3> 
+196	                     
+197	                    <form> 
+198	                        <!-- Nombre del Artista --> 
+199	                        <div class="mb-3"> 
+200	                            <label class="form-label">ARTISTA O BANDA</label> 
+201	                            <input type="text" class="form-control" placeholder="Ej: Los Resonantes"> 
+202	                        </div> 
+203	 
+204	                        <!-- Título del Demo --> 
+205	                        <div class="mb-3"> 
+206	                            <label class="form-label">TÍTULO DEL TRACK</label> 
+207	                            <input type="text" class="form-control" placeholder="Ej: Mañana (Versión 1)"> 
+208	                        </div> 
+209	 
+210	                        <!-- Selección de Archivo --> 
+211	                        <div class="mb-3"> 
+212	                            <label class="form-label">SUBIR ARCHIVO (.WAV O .MP3)</label> 
+213	                            <input type="file" class="form-control"> 
+214	                            <div class="form-text mt-2" style="color: #6c757d; font-size: 0.8rem;"> 
+215	                                * Preferiblemente WAV 44.1kHz / 24-bit para mejores resultados. 
+216	                            </div> 
+217	                        </div> 
+218	 
+219	                        <!-- Notas Técnicas --> 
+220	                        <div class="mb-3"> 
+221	                            <label class="form-label">NOTAS DE PRODUCCIÓN</label> 
+222	                            <textarea class="form-control" rows="3" placeholder="Cuéntanos qué buscas en el sonido..."></textarea> 
+223	                        </div> 
+224	 
+225	                        <button type="submit" class="btn btn-sonic">ENVIAR A REVISIÓN</button> 
+226	                    </form> 
+227	                </div> 
+228	            </div> 
+229	        </div> 
+230	    </main> 
+231	 
+232	    <!-- Footer --> 
+233	    <footer> 
+234	        <div class="container"> 
+235	            <p>© 2026 MACRO SONIC LABS - Ingeniería de Sonido Aplicada</p> 
+236	            <p class="small">Ubicación Ficticia: Sector Norte, Estudio de Altura</p> 
+237	        </div> 
+238	    </footer> 
+239	 
+240	    <div class="sonic-wave"></div> 
+241	 
+242	    <!-- Bootstrap 5 JS --> 
+243	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
+244	</body> 
+245	</html

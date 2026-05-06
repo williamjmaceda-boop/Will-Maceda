@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRESENTACIÓN EN MACRO W.J.M.R</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        .img-redondeada {
+            border-radius: 50px;
+        }
+
+        /* Variaciones de azul para cada sección */
+        #video {
+            background-color: #dbeafe !important; /* Azul muy claro */
+        }
+
+        #tarea {
+            background-color: #bfdbfe !important; /* Azul claro */
+        }
+
+        #imagen {
+            background-color: #93c5fd !important; /* Azul medio-claro */
+        }
+
+        #cancion {
+            background-color: #60a5fa !important; /* Azul medio */
+        }
+    </style>
+</head>
+<body id="inicio" style="background-color: white;">
+<body id="inicio
+
+    <div class="container mt-4 mb-4">
+        <div class="d-table mx-auto p-2 shadow-sm rounded" style="background-color: #1565c0;">
+            <div class="d-table-row text-center">
+               <a href="#inicio" class="d-table-cell px-4 py-2 text-decoration-none fw-bold text-white">Inicio</a>
+               <a href="#video" class="d-table-cell px-4 py-2 text-decoration-none fw-bold text-white">Video</a>
+               <a href="#tarea" class="d-table-cell px-4 py-2 text-decoration-none fw-bold text-white">Tarea</a>
+               <a href="#imagen" class="d-table-cell px-4 py-2 text-decoration-none fw-bold text-white">Imagen</a>
+               <a href="#cancion" class="d-table-cell px-4 py-2 text-decoration-none fw-bold text-white">Canción</a>        
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div id="carruselMacro" class="carousel slide mb-5 shadow-sm" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/id/659/367/267" class="d-block w-100 img-redondeada" alt="Imagen 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/837/367/267" class="d-block w-100 img-redondeada" alt="Imagen 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/237/367/267" class="d-block w-100 img-redondeada" alt="Imagen 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carruselMacro" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carruselMacro" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+
+        <div id="video" class="mb-5 p-5 shadow-sm rounded text-center">
+            <h2 class="mb-4" >Área de Video</h2>
+            <video width="100%" style="max-width: 600px;" controls class="mb-4 rounded">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+            <br>
+            <a href="#inicio" class="btn btn-primary">Volver a Inicio</a>
+        </div>
+
+<div id="tarea" class="mb-5 p-5 shadow-sm rounded text-center">
+    <h2 class="mb-4">Área de Tarea</h2>
+    
+    <table class="table table-bordered mx-auto" style="max-width: 400px;">
+        <thead class="table-primary">
+            <tr>
+                <th>Tarea</th>
+                <th>Enlace</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><b>Tarea 1</b></td>
+                <td><a href="https://docs.google.com/spreadsheets/d/1hkcdJDcOakSfmF0z1z4bGyHigmkdHLcc05gp7iBQMXQ/edit?usp=sharing" target="_blank">Ver documento</a></td>
+            </tr>
+            <tr>
+                <td><b>Tarea 2</b></td>
+                <td><a href="https://docs.google.com/spreadsheets/d/1hkcdJDcOakSfmF0z1z4bGyHigmkdHLcc05gp7iBQMXQ/edit?usp=sharing" target="_blank">Ver documento</a></td>
+            </tr>
+            <tr>
+                <td><b>Tarea 3</b></td>
+                <td><a href="https://docs.google.com/spreadsheets/d/162D-aDIxqh0p7VixUJyXI_OxYPqGDoh8zB58kcH6C3k/edit?usp=sharing" target="_blank">Ver documento</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="#inicio" class="btn btn-primary mt-3">Volver a Inicio</a>
+</div>   
+            
+
+        <div id="imagen" class="mb-5 p-5 shadow-sm rounded text-center">
+            <h2 class="mb-4">Área de Imagen</h2>
+            <img src="https://i.postimg.cc/tC5Z9VfR/foto3.jpg" alt="Imagen referencial" class="img-fluid rounded mb-4 shadow-sm">
+            <br>
+            <a href="#inicio" class="btn btn-primary">Volver a Inicio</a>
+        </div>
+
+        <div id="cancion" class="mb-5 p-5 shadow-sm rounded text-center">
+            <h2 class="mb-4 text-white"">Área de Canción</h2>
+            <audio controls class="mb-4 w-100" style="max-width: 400px;">
+                <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                Tu navegador no soporta la etiqueta de audio.
+            </audio>
+            <br>
+            <a href="#inicio" class="btn btn-primary">Volver a Inicio</a>
+        </div>
+
+    </div>
+<div id="calculadora" class="mb-5 p-5 shadow-sm rounded text-center" style="background-color:#dbeafe;">
+    <h2 class="mb-4">Calculadora</h2>
+
+    <div class="mx-auto" style="max-width: 280px; background-color:#1565c0; border-radius:16px; padding:20px;">
+        
+        <!-- Pantalla -->
+        <div style="background-color:#ffffff; border-radius:8px; padding:12px 16px; text-align:right; margin-bottom:16px;">
+            <div style="font-size:13px; color:#888;">0</div>
+            <div style="font-size:28px; font-weight:700; color:#1565c0;">0</div>
+        </div>
+
+        <!-- Botones -->
+        <div class="d-grid gap-2" style="grid-template-columns: repeat(4, 1fr); display:grid;">
+
+            <!-- Fila 1 -->
+            <button class="btn" style="background:#e3f2fd; color:#1565c0; font-weight:700; border-radius:8px;">C</button>
+            <button class="btn" style="background:#e3f2fd; color:#1565c0; font-weight:700; border-radius:8px;">+/-</button>
+            <button class="btn" style="background:#e3f2fd; color:#1565c0; font-weight:700; border-radius:8px;">%</button>
+            <button class="btn" style="background:#ff9800; color:#fff; font-weight:700; border-radius:8px;">÷</button>
+
+            <!-- Fila 2 -->
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">7</button>
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">8</button>
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">9</button>
+            <button class="btn" style="background:#ff9800; color:#fff; font-weight:700; border-radius:8px;">×</button>
+
+            <!-- Fila 3 -->
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">4</button>
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">5</button>
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">6</button>
+            <button class="btn" style="background:#ff9800; color:#fff; font-weight:700; border-radius:8px;">−</button>
+
+            <!-- Fila 4 -->
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">1</button>
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">2</button>
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">3</button>
+            <button class="btn" style="background:#ff9800; color:#fff; font-weight:700; border-radius:8px;">+</button>
+
+            <!-- Fila 5 -->
+            <button class="btn col-span-2" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px; grid-column: span 2;">0</button>
+            <button class="btn" style="background:#ffffff; color:#1565c0; font-weight:700; border-radius:8px;">.</button>
+            <button class="btn" style="background:#1976d2; color:#fff; font-weight:700; border-radius:8px;">=</button>
+
+        </div>
+    </div>
+
+    <br>
+    <a href="#inicio" class="btn btn-primary mt-3">Volver a Inicio</a>
+</div>
+    <footer class="text-center py-4 bg-dark text-white mt-5">
+        <p class="mb-2 fs-5">redes sociales, Macro m.a.r</p>
+        <div class="fs-3">
+            <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-tiktok"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

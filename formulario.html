@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WJMR MUSIC | Laboratorio de Sonido</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-navbar: #2d1a0e;
+            --bg-footer: #2d1a0e;
+        }
+        body {
+            background-color: #f5efe6;
+            color: #3d1f0a;
+            font-family: 'Outfit', sans-serif;
+            margin: 0; padding: 0;
+        }
+        .navbar {
+            background-color: var(--bg-navbar);
+            border-bottom: 3px solid #FF6600;
+            padding: 1rem 2rem;
+        }
+        .navbar-brand {
+            font-family: 'Share Tech Mono', monospace;
+            color: #FF6600 !important;
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-size: 1.9rem;
+            text-shadow: 0 0 12px rgba(255,102,0,0.6);
+        }
+        .navbar-btn {
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border: 2px solid #FF6600;
+            border-radius: 25px;
+            background-color: transparent;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+        .navbar-btn:hover {
+            background-color: #FF6600;
+            color: #ffffff !important;
+            box-shadow: 0 0 14px rgba(255,102,0,0.6);
+        }
+        .hero-section {
+            padding: 80px 0 120px;
+            background-color: #DDD2C2;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: #1a0a02;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #5a3010;
+            font-family: 'Share Tech Mono', monospace;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .visualizer-mock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            height: 40px;
+            margin: 0 auto 24px;
+        }
+        .bar {
+            width: 6px;
+            background-color: #FF6600;
+            border-radius: 3px;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { height: 5px; }
+            to   { height: 30px; }
+        }
+        .upload-container {
+            background-color: #E57F2A;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: -60px;
+            box-shadow: 0 20px 60px rgba(30,10,0,0.25);
+            position: relative;
+            z-index: 2;
+        }
+        .upload-container h3 { color: #ffffff; font-weight: 700; }
+        .subtitle-text { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .form-label { color: #ffffff; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 0.4rem; }
+        .form-control, .form-select {
+            background-color: #ffffff;
+            border: 1px solid #e0d0bc;
+            color: #3d1f0a;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .form-control:focus, .form-select:focus {
+            background-color: #fff;
+            border-color: #c8a87a;
+            color: #3d1f0a;
+            box-shadow: 0 0 0 3px rgba(200,168,122,0.2);
+        }
+        .form-control::placeholder { color: #b09070; }
+        .form-select { color: #b09070; }
+        .form-select option { color: #3d1f0a; }
+        input[type="file"].form-control { color: #3d1f0a; }
+        .form-text { color: rgba(255,255,255,0.75) !important; font-size: 0.78rem; }
+        .btn-sonic {
+            background-color: #C05A0A;
+            color: #fff;
+            font-weight: 800;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+        .btn-sonic:hover {
+            background-color: #A04808;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(90,30,0,0.45);
+            color: #fff;
+        }
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #ffffff;
+            background-color: var(--bg-footer);
+        }
+        footer p { margin-bottom: 0.3rem; }
+        footer .text-orange { color: rgba(255,255,255,0.75); font-size: 0.95rem; }
+        @media (max-width: 576px) { .hero-title { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">WJMR MUSIC</a>
+            <div class="ms-auto">
+                <a class="navbar-btn" href="index.html">Página Principal</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <div class="visualizer-mock">
+                <div class="bar" style="animation-delay:0.0s;height:10px"></div>
+                <div class="bar" style="animation-delay:0.2s;height:18px"></div>
+                <div class="bar" style="animation-delay:0.1s;height:25px"></div>
+                <div class="bar" style="animation-delay:0.3s;height:14px"></div>
+                <div class="bar" style="animation-delay:0.15s;height:20px"></div>
+            </div>
+            <h1 class="hero-title">DESCUBRE TU<br>SONIDO</h1>
+            <p class="hero-subtitle">Envíanos tu demo, maqueta o audio para una revisión técnica, arreglo o masterización</p>
+        </div>
+    </header>
+
+    <main style="background:#F3EEE6; padding-bottom:60px; padding-top:1px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-9">
+                    <div class="upload-container">
+                        <h3 class="text-center mb-1">PORTAL DE CARGA</h3>
+                        <p class="subtitle-text text-center">Completa los datos del proyecto y adjunta el archivo de audio para registrarlo.</p>
+
+                        <div id="msg-success" style="display:none;background:#2d6a2d;color:#fff;border-radius:10px;padding:16px;text-align:center;margin-bottom:16px;font-weight:600;">
+                            ✅ ¡Enviado con éxito! Nos pondremos en contacto contigo pronto.
+                        </div>
+                        <div id="msg-error" style="display:none;background:#7a1a1a;color:#fff;border-radius:10px;padding:16px;text-align:center;margin-bottom:16px;font-weight:600;">
+                            ❌ Hubo un error al enviar. Intenta de nuevo.
+                        </div>
+
+                        <form id="portalForm">
+                            <div class="mb-3">
+                                <label class="form-label">ARTISTA O BANDA</label>
+                                <input id="f_artista" type="text" class="form-control" placeholder="Ej: Los Resonantes" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">TÍTULO DEL TRACK</label>
+                                <input id="f_track" type="text" class="form-control" placeholder="Ej: Mañana (Versión 1)" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">SERVICIO</label>
+                                <select id="f_servicio" class="form-select" required>
+                                    <option value="" disabled selected>Selecciona un servicio...</option>
+                                    <option>Mezcla</option>
+                                    <option>Masterización</option>
+                                    <option>Arreglo</option>
+                                    <option>Preproducción</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">SUBIR ARCHIVO (.WAV O .MP3)</label>
+                                <input id="f_archivo" type="file" class="form-control">
+                                <div class="form-text mt-2">* Preferiblemente WAV 44.1kHz / 24-bit para mejores resultados.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">REFERENCIAS DE ESTILO</label>
+                                <input id="f_referencias" type="text" class="form-control" placeholder="Ej: Artistas, canciones o géneros de referencia...">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">NOTAS DE PRODUCCIÓN</label>
+                                <textarea id="f_notas" class="form-control" rows="3" placeholder="Cuéntanos qué buscas en el sonido..."></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">E-MAIL DE REGISTRO</label>
+                                <input id="f_email" type="email" class="form-control" placeholder="tucorreo@ejemplo.com" required>
+                            </div>
+                            <button id="btnEnviar" type="submit" class="btn btn-sonic">ENVIAR A REVISIÓN</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 WJMR Music - Ingeniería en Sonido</p>
+            <p class="text-orange">Laboratorio de Sonido - Mezcla - Masterización - Preproducción</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxFg96zAkSMhtkH2mFbB2x7SFIJQkMD7ZRPwkwDSPG2WQ5o6saylgwb9EqbNg_6QdJl/exec";
+
+        document.getElementById("portalForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const btn    = document.getElementById("btnEnviar");
+            const msgOk  = document.getElementById("msg-success");
+            const msgErr = document.getElementById("msg-error");
+            msgOk.style.display  = "none";
+            msgErr.style.display = "none";
+            btn.disabled = true;
+            btn.textContent = "ENVIANDO...";
+            const archivo = document.getElementById("f_archivo").files[0];
+            const nombreArchivo = archivo ? archivo.name : "Sin archivo";
+            const datos = new URLSearchParams({
+                artista:     document.getElementById("f_artista").value,
+                track:       document.getElementById("f_track").value,
+                servicio:    document.getElementById("f_servicio").value,
+                archivo:     nombreArchivo,
+                referencias: document.getElementById("f_referencias").value,
+                notas:       document.getElementById("f_notas").value,
+                email:       document.getElementById("f_email").value
+            });
+            fetch(APPS_SCRIPT_URL, { method: "POST", body: datos })
+            .then(res => res.text())
+            .then(() => {
+                msgOk.style.display = "block";
+                document.getElementById("portalForm").reset();
+                btn.disabled = false;
+                btn.textContent = "ENVIAR A REVISIÓN";
+                msgOk.scrollIntoView({ behavior: "smooth", block: "center" });
+            })
+            .catch(() => {
+                msgErr.style.display = "block";
+                btn.disabled = false;
+                btn.textContent = "ENVIAR A REVISIÓN";
+            });
+        });
+    </script>
+</body>
+</html>

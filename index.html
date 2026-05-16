@@ -1,654 +1,327 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Página Personal</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:wght@700&family=Poiret+One&family=Rajdhani:wght@700&family=Cormorant+Garamond:wght@700&family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #F5E6D3;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* ===== HEADER NARANJA ===== */
-      .site-header {
-      background-color: #E67E22;
-      padding: 14px 100px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 3px solid #D35400;
-}
-
-    .site-header .logo {
-      color: white;
-      font-size: 1.3rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* BOTONES DE NAVEGACIÓN */
-    .nav-btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-    }
-
-    .nav-btns a {
-      color: white;
-      border: 2px solid white;
-      border-radius: 999px;
-      padding: 6px 18px;
-      font-size: 0.82rem;
-      font-weight: bold;
-      text-decoration: none;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .nav-btns a:hover {
-      background-color: white;
-      color: #E67E22;
-    }
-
-    /* HERO NARANJA con título */
-    .site-hero {
-      background-color: #5D4037;
-      padding: 50px 30px;
-      text-align: center;
-    }
-
-    .site-hero h1 {
-      color: #FFCCBC;
-      font-family: 'Cinzel Decorative', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin: 0;
-      letter-spacing: 3px;
-      text-shadow: 2px 3px 14px rgba(0,0,0,0.3);
-    }
-
-    /* Botones de nav dentro de tabla (fondo claro) */
-    .nav-btns-dark a {
-      color: #D35400;
-      border: 2px solid #D35400;
-      border-radius: 999px;
-      padding: 6px 18px;
-      font-size: 0.82rem;
-      font-weight: bold;
-      text-decoration: none;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .nav-btns-dark a:hover {
-      background-color: #E67E22;
-      color: white;
-      border-color: #E67E22;
-    }
-
-    /* Contenido con padding */
-    .page-content {
-      padding: 15px 10px;
-    }
-
-    /* CONTENEDOR DE TABLA con bordes redondeados y hover */
-    .tabla-wrapper {
-      width: 100%;
-      max-width: 1000px;
-      margin: 15px auto;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 6px 6px 14px rgba(0,0,0,0.2);
-      border: 2px solid #D35400;
-      background-color: #FFF8F0;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    /* EFECTO HOVER */
-    .tabla-wrapper:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 10px 14px 28px rgba(0,0,0,0.28);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      text-align: center;
-      background-color: #FFF8F0;
-    }
-
-    /* Bordes redondeados en celdas de esquina */
-    table tr:first-child th:first-child,
-    table tr:first-child td:first-child { border-top-left-radius: 14px; }
-    table tr:first-child th:last-child,
-    table tr:first-child td:last-child  { border-top-right-radius: 14px; }
-    table tr:last-child td:first-child  { border-bottom-left-radius: 14px; }
-    table tr:last-child td:last-child   { border-bottom-right-radius: 14px; }
-
-    th {
-      background-color: #E67E22;
-      color: white;
-    }
-
-    td {
-      background-color: #FDEBD0;
-      color: #5D4037;
-    }
-
-    td, th {
-      border: 1px solid #D35400;
-      padding: 10px;
-    }
-
-    table tr td + td,
-    table tr th + th,
-    table tr th + td,
-    table tr td + th { border-left: 1px solid #D35400; }
-    table tr + tr td,
-    table tr + tr th { border-top: 0; }
-
-    /* CARRUSEL CSS SIN MARQUEE */
-    .carousel-track-wrapper {
-      overflow: hidden;
-      width: 100%;
-    }
-
-    .carousel-track {
-      display: flex;
-      gap: 10px;
-      animation: scroll-fotos 40s linear infinite;
-      width: max-content;
-    }
-
-    .carousel-track img {
-      width: 220px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
-      flex-shrink: 0;
-    }
-
-    @keyframes scroll-fotos {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    img {
-      width: 90%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 480px;
-      border-radius: 10px;
-      display: block;
-    }
-
-    a {
-      color: #E67E22;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      color: #BF6516;
-    }
-
-    /* ===== REDES SOCIALES ===== */
-    .social-links {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      padding: 10px 0;
-      flex-wrap: wrap;
-    }
-
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .social-links a:hover {
-      transform: scale(1.15);
-      opacity: 0.85;
-    }
-
-    .social-links img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      border-radius: 8px;
-      display: block;
-    }
-
-    .social-links .social-label {
-      display: block;
-      font-size: 0.72rem;
-      color: #5D4037;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 4px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    /* ===== BOTÓN FORMULARIO ===== */
-      .btn-formulario {
-      color: #E67E22;
-      background-color: #F5E6D3;
-      border: 2px solid #F5E6D3;
-      border-radius: 999px;
-      padding: 8px 22px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      text-decoration: none;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      white-space: nowrap;
-    }
-
-    .btn-formulario:hover {
-      background-color: #D35400;
-      color: white;
-      border-color: #D35400;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WJMR MUSIC | Laboratorio de Sonido</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-navbar: #2d1a0e;
+            --bg-footer: #2d1a0e;
+        }
+        body {
+            background-color: #f5efe6;
+            color: #3d1f0a;
+            font-family: 'Outfit', sans-serif;
+            margin: 0; padding: 0;
+        }
+        .navbar {
+            background-color: var(--bg-navbar);
+            border-bottom: 3px solid #FF6600;
+            padding: 1rem 2rem;
+        }
+        .navbar-brand {
+            font-family: 'Share Tech Mono', monospace;
+            color: #FF6600 !important;
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-size: 1.9rem;
+            text-shadow: 0 0 12px rgba(255,102,0,0.6);
+        }
+        .navbar-btn {
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border: 2px solid #FF6600;
+            border-radius: 25px;
+            background-color: transparent;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+        .navbar-btn:hover {
+            background-color: #FF6600;
+            color: #ffffff !important;
+            box-shadow: 0 0 14px rgba(255,102,0,0.6);
+        }
+        .hero-section {
+            padding: 80px 0 120px;
+            background-color: #DDD2C2;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            color: #1a0a02;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: #5a3010;
+            font-family: 'Share Tech Mono', monospace;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .visualizer-mock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            height: 40px;
+            margin: 0 auto 24px;
+        }
+        .bar {
+            width: 6px;
+            background-color: #FF6600;
+            border-radius: 3px;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { height: 5px; }
+            to   { height: 30px; }
+        }
+        .upload-container {
+            background-color: #E57F2A;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: -60px;
+            box-shadow: 0 20px 60px rgba(30,10,0,0.25);
+            position: relative;
+            z-index: 2;
+        }
+        .upload-container h3 { color: #ffffff; font-weight: 700; }
+        .subtitle-text { color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .form-label { color: #ffffff; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 0.4rem; }
+        .form-control, .form-select {
+            background-color: #ffffff;
+            border: 1px solid #e0d0bc;
+            color: #3d1f0a;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-family: 'Outfit', sans-serif;
+        }
+        .form-control:focus, .form-select:focus {
+            background-color: #fff;
+            border-color: #c8a87a;
+            color: #3d1f0a;
+            box-shadow: 0 0 0 3px rgba(200,168,122,0.2);
+        }
+        .form-control::placeholder { color: #b09070; }
+        .form-select { color: #b09070; }
+        .form-select option { color: #3d1f0a; }
+        input[type="file"].form-control { color: #3d1f0a; }
+        .form-text { color: rgba(255,255,255,0.75) !important; font-size: 0.78rem; }
+        .btn-sonic {
+            background-color: #C05A0A;
+            color: #fff;
+            font-weight: 800;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+        .btn-sonic:hover {
+            background-color: #A04808;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(90,30,0,0.45);
+            color: #fff;
+        }
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #ffffff;
+            background-color: var(--bg-footer);
+        }
+        footer p { margin-bottom: 0.3rem; }
+        footer .text-orange { color: rgba(255,255,255,0.75); font-size: 0.95rem; }
+        @media (max-width: 576px) { .hero-title { font-size: 2.5rem; } }
+    </style>
 </head>
-
 <body>
 
-  <!-- HEADER NARANJA CON LOGO -->
-  <header class="site-header">
-    <div class="logo">Mi Página Personal</div>
-    <a href="formulario.html" class="btn-formulario">Formulario</a>
-  </header>
-
-  <!-- HERO CON NOMBRE -->
-  <div class="site-hero">
-    <h1>William Jose Maceda Rodriguez</h1>
-  </div>
-
-  <div class="page-content">
-
-  <!-- CARRUSEL -->
-  <div class="tabla-wrapper">
-    <div style="
-      background-color: #E67E22;
-      color: #FFFFFF;
-      font-size: 1.1rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 12px;
-      text-align: center;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
-      border-bottom: 3px solid #BF4500;
-    ">📷 Galería de Fotos</div>
-    <table>
-      <tr>
-        <td style="padding:10px;">
-          <div class="carousel-track-wrapper">
-            <div class="carousel-track">
-              <!-- Grupo original -->
-              <img src="FotoPersonal.jpeg"><img src="Mision.png">
-              <img src="Vision.png"><img src="Perrito01.jpg"><img src="Perrito02.jpg">
-              <img src="Perrito03.png"><img src="Perrito04.png"><img src="Perrito05.png">
-              <img src="Perrito06.png">
-              <!-- Copia exacta para loop infinito sin salto -->
-              <img src="FotoPersonal.jpeg"><img src="Mision.png">
-              <img src="Vision.png"><img src="Perrito01.jpg"><img src="Perrito02.jpg">
-              <img src="Perrito03.png"><img src="Perrito04.png"><img src="Perrito05.png">
-              <img src="Perrito06.png">
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">WJMR MUSIC</a>
+            <div class="ms-auto">
+                <a class="navbar-btn" href="index.html">Página Principal</a>
             </div>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- ÍNDICE -->
-  <div class="tabla-wrapper nav-wrapper">
-    <table>
-      <tr><th style="font-size:1.2rem; letter-spacing:1px;">Índice</th></tr>
-      <tr>
-        <td style="text-align:center; padding: 14px;">
-          <nav class="nav-btns nav-btns-dark">
-            <a href="#datospersonales">Datos Personales</a>
-            <a href="#datosuniversidad">Universidad</a>
-            <a href="#cancion">Canción Favorita</a>
-            <a href="#juegos">Juegos Favoritos</a>
-            <a href="#mision">Misión &amp; Visión</a>
-            <a href="#tareas">Tareas</a>
-            <a href="#redes">Redes Sociales</a>
-          </nav>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- DATOS PERSONALES -->
-  <div class="tabla-wrapper" id="datospersonales">
-    <table>
-      <tr>
-        <th colspan="3">Datos Personales</th>
-      </tr>
-      <tr>
-        <td rowspan="7" style="width:320px; vertical-align:top; padding:10px;">
-          <img src="FotoPersonal.jpeg" alt="Foto personal" style="width:300px; height:360px; object-fit:cover; border-radius:10px; display:block; margin:0 auto;">
-        </td>
-        <td><b>Nombre:</b></td><td>William Jose Maceda Rodriguez</td>
-      </tr>
-      <tr>
-        <td><b>Carnet:</b></td><td>3490256</td>
-      </tr>
-      <tr>
-        <td><b>Dirección:</b></td><td>La Tablada #652</td>
-      </tr>
-      <tr>
-        <td><b>Celular:</b></td><td>73244205</td>
-      </tr>
-      <tr>
-        <td><b>eMail:</b></td><td>william.jose.maceda@gmail.com</td>
-      </tr>
-      <tr><td><b>Nombre Mascota:</b></td><td>Chester</td></tr>
-      <tr><td><b>Raza:</b></td><td>Teckel (Salchicha)</td></tr>
-    </table>
-  </div>
-
-  <!-- DATOS UNIVERSIDAD -->
-  <div class="tabla-wrapper" id="datosuniversidad">
-    <table>
-      <tr><th colspan="3">Datos Universidad</th></tr>
-      <tr>
-        <td rowspan="7" style="width:320px; vertical-align:top; padding:10px;">
-          <img src="FotoUnitepc.jpeg" alt="Foto universidad" style="width:300px; height:auto; object-fit:contain; border-radius:10px; display:block; margin:0 auto;">
-        </td>
-      </tr>
-      <tr><td><b>Universidad:</b></td><td>UNITEPC</td></tr>
-      <tr><td><b>Carrera:</b></td><td>Ingeniería de Sonido</td></tr>
-      <tr><td><b>Código:</b></td><td>1401386</td></tr>
-      <tr><td><b>Materia:</b></td><td>Computación</td></tr>
-      <tr><td><b>Docente:</b></td><td>Miguel Angel Cruz Ramos</td></tr>
-      <tr><td><b>Fecha:</b></td><td>21 Abril 2026</td></tr>
-    </table>
-  </div>
-
-  <!-- CANCIÓN FAVORITA -->
-  <div class="tabla-wrapper" id="cancion">
-    <table>
-      <tr><th colspan="3"><b>Canción Favorita</b></th></tr>
-      <tr>
-        <td colspan="3" style="padding: 12px; text-align:center;">
-          <p style="font-size:1.1rem; font-weight:bold; color:#5D4037; margin:0 0 10px 0; letter-spacing:1px;">♪ Keane - Somewhere Only we know ♪</p>
-          <iframe src="https://drive.google.com/file/d/1AcKYq33EJFkmtV1vpLJk9EQdYUayS5uQ/preview"
-            title="Keane - Somewhere Only we know"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-            style="width:75%; height:340px; border-radius:10px; display:block; margin:0 auto;">
-          </iframe>
-        </td>
-      </tr>
-      <tr>
-      <td rowspan="6" style="width:400px; height:600px; vertical-align:top; padding:14px;">
-  <b>♪♪♪ Letra de la Canción ♪♪♪</b>
-  <div style="
-    height: 530px;
-    overflow-y: auto;
-    background: linear-gradient(135deg, #FFFFFF, #FFE0B2);
-    border: 1px solid #E67E22;
-    border-radius: 12px;
-    padding: 16px 18px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: #5D4037;
-    line-height: 1.85;
-    text-align: left;">
-    <p>I walked across an empty land<br>
-    I knew the pathway like the back of my hand<br></p>
-    <p>I felt the earth beneath my feet <br>
-    Sat by the river and it made me complete <br></p>
-    <p>Oh, simple thing, where have you gone?<br>
-    I'm getting old, and I need something to rely on</p>
-    <p>So, tell me when you're gonna let me in<br>
-    I'm getting tired, and I need somewhere to begin<br></p>
-    <p>I came across a fallen tree<br>
-    I felt the branches of it looking at me <br></p>
-    <p>Is this the place we used to love?<br>
-    Is this the place that I've been dreaming of?<br></p>
-    <p>Oh, simple thing, where have you gone?<br>
-    I'm getting old, and I need something to rely on<br></p>
-    <p>So, tell me when you're gonna let me in<br>
-    I'm getting tired, and I need somewhere to begin<br></p>
-    <p>And if you have a minute, why don't we go<br>
-Talk about it somewhere only we know?<br></p>
-<p>This could be the end of everything<br>
-So, why don't we go somewhere only we know?<br></p>
-<p>Somewhere only we know<br>
-Oh, simple thing, where have you gone?<br></p>
-<p>I'm getting old, and I need something to rely on<br>
-So, tell me when you're gonna let me in<br></p>
-<p>I'm getting tired, and I need somewhere to begin<br>
-And if you have a minute, why don't we go<br></p>
-<p>Talk about it somewhere only we know?<br>
-This could be the end of everything<br></p>
-<p>So, why don't we go?<br>
-So, why don't we go?<br></p>
-<p>Ooh, oh-oh<br>
-Ah, oh<br></p>
-<p>This could be the end of everything<br>
-So, why don't we go somewhere only we know?<br></p>
-<p>Somewhere only we know<br>
-Somewhere only we know<br></p>
-
-  </div>
-</td>    
-      </tr>
-      <tr>
-        <td><b>Interprete:</b></td><td>Keane</td>
-      </tr>
-      <tr>
-        <td><b>Nombre canción:</b></td><td>♪♪ Somewhere Only We Know ♪♪</td>
-      </tr>
-      <tr>
-        <td><b>Biografía:</b></td><td>Keane es una banda británica de rock alternativo formada en Battle, East Sussex, en 1997. Conocidos por su sonido distintivo basado en piano, bajo y batería (sin guitarra eléctrica), alcanzaron la fama mundial con su álbum debut "Hopes and Fears" (2004), que incluye el exitoso sencillo "Somewhere Only We Know".</td>
-      </tr>
-      <tr>
-        <td><b>Logros:</b></td><td>Han ganado múltiples premios Brit y fueron nominados al Mercury Prize. Su álbum debut vendió más de 5 millones de copias en todo el mundo.</td>
-      </tr>
-      <tr>
-        <td><b>Vida Personal:</b></td><td>La banda está formada por Tom Chaplin (voz), Tim Rice-Oxley (piano/teclados), Richard Hughes (batería) y Jesse Quin (bajo). Tom Chaplin ha hablado abiertamente sobre su lucha contra las adicciones y su recuperación.</td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- JUEGOS FAVORITOS -->
-  <div class="tabla-wrapper" id="juegos">
-    <table>
-      <tr>
-        <th colspan="3">JUEGOS FAVORITOS</th>
-      </tr>
-      <tr>
-        <th colspan="3">Clash Royale</th>
-      </tr>
-      <tr>
-        <td rowspan="6" style="width:260px; vertical-align:top; padding:10px;">
-          <img src="FotoClash.jpeg" style="width:240px; height:380px; object-fit:cover; object-position:top; border-radius:10px; display:block; margin:0 auto;">
-        </td>
-        <td><b>Nombre Cuenta:</b></td>
-        <td>Will</td>
-      </tr>
-      <tr><td><b>Camino de Trofeos:</b></td><td>12313 Coronas</td></tr>
-      <tr><td><b>Arena:</b></td><td>29</td></tr>
-      <tr><td><b>Batallas Ganadas:</b></td><td>3721</td></tr>
-      <tr><td><b>Oro ganado:</b></td><td>1553625</td></tr>
-      <tr><td><b>Diamantes:</b></td><td>7838</td></tr>
-      <tr>
-        <th colspan="3">Mobile Legends</th>
-      </tr>
-      <tr>
-        <td colspan="3" style="text-align:center; padding:10px;">
-          <img src="FotoMobile.jpeg" style="width:95%; max-width:650px; height:auto; object-fit:contain; border-radius:10px; display:block; margin:0 auto;">
-        </td>
-      </tr>
-      <tr><td><b>Nombre Cuenta:</b></td><td colspan="2">Will</td></tr>
-      <tr><td><b>Heroe mas usado:</b></td><td colspan="2">Laila</td></tr>
-      <tr><td><b>Partidas:</b></td><td colspan="2">418 Partidas</td></tr>
-      <tr><td><b>Tasa de victorias:</b></td><td colspan="2">45.22%</td></tr>
-    </table>
-  </div>
-
-  <!-- MISIÓN Y VISIÓN -->
-  <div class="tabla-wrapper" id="mision">
-    <table>
-      <tr><th colspan="3">Misión y Visión</th></tr>
-      <tr>
-        <td style="vertical-align:middle; padding:14px; text-align:left;">
-          <b>Misión</b><br><br>
-          Mi misión es culminar con éxito mi carrera de Ingeniería de Sonido, adquiriendo no solo los conocimientos teóricos y técnicos necesarios, sino también desarrollando habilidades prácticas, creatividad y disciplina. Busco formarme como un profesional competente, capaz de enfrentar retos en el ámbito del audio, aportando calidad, innovación y compromiso en cada proyecto que realice.
-        </td>
-        <td style="width:300px; vertical-align:top; padding:10px;">
-          <img src="Mision.png" alt="Imagen Misión"
-               style="width:280px; height:auto; object-fit:cover; object-position:top; border-radius:10px; display:block; margin:0 auto;">
-        </td>
-      </tr>
-      <tr>
-        <td style="vertical-align:middle; padding:14px; text-align:left;">
-          <b>Visión</b><br><br>
-          Mi visión es consolidarme en el futuro como un productor de sonido profesional, reconocido por la calidad de mi trabajo y mi capacidad creativa. Aspiro a participar en proyectos musicales y audiovisuales de alto nivel, contribuyendo al desarrollo de la industria del sonido, y creciendo constantemente tanto a nivel personal como profesional.
-        </td>
-        <td style="width:300px; vertical-align:top; padding:10px;">
-          <img src="Vision.png" alt="Imagen Visión"
-               style="width:280px; height:auto; object-fit:cover; object-position:bottom; border-radius:10px; display:block; margin:0 auto;">
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- TAREAS -->
-  <div id="tareas" style="max-width:1000px; margin:15px auto;">
-
-    <h2 style="font-family:'Cinzel Decorative',serif; color:#5D4037; font-size:1.6rem; font-weight:700; border-bottom:3px solid #E67E22; padding-bottom:8px; margin-bottom:18px;">
-      Tareas destacadas
-      <a href="#" style="float:right; background:#E67E22; color:white; border:2px solid #E67E22; border-radius:999px; padding:5px 18px; font-size:0.75rem; font-family:Arial,sans-serif; letter-spacing:1px; text-transform:uppercase; font-weight:bold; text-decoration:none; vertical-align:middle; margin-top:4px;">Inicio</a>
-    </h2>
-
-    <!-- TAREA 1 -->
-    <div class="tabla-wrapper" style="margin-bottom:18px;">
-      <div style="background:#E67E22; color:white; font-weight:bold; font-size:1rem; padding:8px 14px; letter-spacing:1px; border-radius:14px 14px 0 0;">
-        Tarea 1
-      </div>
-      <div style="padding:12px;">
-        <iframe
-          src="https://docs.google.com/spreadsheets/d/1hkcdJDcOakSfmF0z1z4bGyHigmkdHLcc05gp7iBQMXQ/preview"
-          style="width:100%; height:250px; border-radius:10px; border:none; display:block;"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-
-    <!-- TAREA 2 -->
-    <div class="tabla-wrapper" style="margin-bottom:18px;">
-      <div style="background:#E67E22; color:white; font-weight:bold; font-size:1rem; padding:8px 14px; letter-spacing:1px; border-radius:14px 14px 0 0;">
-        Tarea 2
-      </div>
-      <div style="padding:12px;">
-        <iframe
-          src="https://docs.google.com/spreadsheets/d/1hkcdJDcOakSfmF0z1z4bGyHigmkdHLcc05gp7iBQMXQ/preview?gid=2082612069#gid=2082612069"
-          style="width:100%; height:250px; border-radius:10px; border:none; display:block;"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-
-    <!-- TAREA 3 -->
-    <div class="tabla-wrapper">
-      <div style="background:#E67E22; color:white; font-weight:bold; font-size:1rem; padding:8px 14px; letter-spacing:1px; border-radius:14px 14px 0 0;">
-        Tarea 3
-      </div>
-      <div style="padding:12px;">
-        <iframe
-          src="https://docs.google.com/spreadsheets/d/162D-aDIxqh0p7VixUJyXI_OxYPqGDoh8zB58kcH6C3k/preview"
-          style="width:100%; height:250px; border-radius:10px; border:none; display:block;"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- REDES SOCIALES -->
-  <div class="tabla-wrapper" id="redes">
-    <table>
-      <tr><th>Redes Sociales</th></tr>
-      <tr>
-        <td>
-          <div class="social-links">
-
-            <!-- Facebook -->
-            <div>
-              <a href="https://www.facebook.com/" target="_blank" title="Facebook">
-                <img src="LogoFace.png" alt="Facebook">
-              </a>
-              <span class="social-label">Facebook</span>
-            </div>
-
-            <!-- TikTok -->
-            <div>
-              <a href="https://www.tiktok.com/@willmaceda" target="_blank" title="TikTok">
-                <img src="LogoTiktok.png" alt="TikTok">
-              </a>
-              <span class="social-label">TikTok</span>
-            </div>
-
-            <!-- YouTube -->
-            <div>
-              <a href="https://www.youtube.com/@williammaceda3708" target="_blank" title="YouTube">
-                <img src="LogoYoutube.png" alt="YouTube">
-              </a>
-              <span class="social-label">YouTube</span>
-            </div>
-
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  </div><!-- fin page-content -->
-
-  <!-- FOOTER -->
-  <footer class="site-header" style="margin-top:10px; justify-content:center; flex-wrap:wrap; gap:10px;">
-    <nav class="nav-btns">
-      <a href="#datospersonales">Datos Personales</a>
-      <a href="#datosuniversidad">Universidad</a>
-      <a href="#cancion">Canción Favorita</a>
-      <a href="#juegos">Juegos Favoritos</a>
-      <a href="#mision">Misión &amp; Visión</a>
-      <a href="#tareas">Tareas</a>
-      <a href="#redes">Redes Sociales</a>
+        </div>
     </nav>
-  </footer>
 
+    <header class="hero-section">
+        <div class="container">
+            <div class="visualizer-mock">
+                <div class="bar" style="animation-delay:0.0s;height:10px"></div>
+                <div class="bar" style="animation-delay:0.2s;height:18px"></div>
+                <div class="bar" style="animation-delay:0.1s;height:25px"></div>
+                <div class="bar" style="animation-delay:0.3s;height:14px"></div>
+                <div class="bar" style="animation-delay:0.15s;height:20px"></div>
+            </div>
+            <h1 class="hero-title">DESCUBRE TU<br>SONIDO</h1>
+            <p class="hero-subtitle">Envíanos tu demo, maqueta o audio para una revisión técnica, arreglo o masterización</p>
+        </div>
+    </header>
+
+    <main style="background:#F3EEE6; padding-bottom:60px; padding-top:1px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-9">
+                    <div class="upload-container">
+                        <h3 class="text-center mb-1">PORTAL DE CARGA</h3>
+                        <p class="subtitle-text text-center">Completa los datos del proyecto y adjunta el archivo de audio para registrarlo.</p>
+
+                        <div id="msg-success" style="display:none;background:#2d6a2d;color:#fff;border-radius:10px;padding:16px;text-align:center;margin-bottom:16px;font-weight:600;">
+                            ✅ ¡Enviado con éxito! Nos pondremos en contacto contigo pronto.
+                        </div>
+                        <div id="msg-error" style="display:none;background:#7a1a1a;color:#fff;border-radius:10px;padding:16px;text-align:center;margin-bottom:16px;font-weight:600;">
+                            ❌ Hubo un error al enviar. Intenta de nuevo.
+                        </div>
+
+                        <form id="portalForm">
+                            <div class="mb-3">
+                                <label class="form-label">ARTISTA O BANDA</label>
+                                <input id="f_artista" type="text" class="form-control" placeholder="Ej: Los Resonantes" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">TÍTULO DEL TRACK</label>
+                                <input id="f_track" type="text" class="form-control" placeholder="Ej: Mañana (Versión 1)" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">SERVICIO</label>
+                                <select id="f_servicio" class="form-select" required>
+                                    <option value="" disabled selected>Selecciona un servicio...</option>
+                                    <option>Mezcla</option>
+                                    <option>Masterización</option>
+                                    <option>Arreglo</option>
+                                    <option>Preproducción</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">SUBIR ARCHIVO (.WAV O .MP3)</label>
+                                <input id="f_archivo" type="file" class="form-control">
+                                <div class="form-text mt-2">* Preferiblemente WAV 44.1kHz / 24-bit para mejores resultados.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">REFERENCIAS DE ESTILO</label>
+                                <input id="f_referencias" type="text" class="form-control" placeholder="Ej: Artistas, canciones o géneros de referencia...">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">NOTAS DE PRODUCCIÓN</label>
+                                <textarea id="f_notas" class="form-control" rows="3" placeholder="Cuéntanos qué buscas en el sonido..."></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">E-MAIL DE REGISTRO</label>
+                                <input id="f_email" type="email" class="form-control" placeholder="tucorreo@ejemplo.com" required>
+                            </div>
+                            <button id="btnEnviar" type="submit" class="btn btn-sonic">ENVIAR A REVISIÓN</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 WJMR Music - Ingeniería en Sonido</p>
+            <p class="text-orange">Laboratorio de Sonido - Mezcla - Masterización - Preproducción</p>
+        </div>
+    </footer>
+
+ <script>
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxNYSEXaST8_Z4MMf8uWN9ko9d3I0crECb0ktWLL5Eadcpn1g0LZX0iGDTrkFNxEtx9/exec";
+    const DRIVE_FOLDER_ID = "1Oh26I6x-dRkp4sP7j6Fs57T7IZnZaxxC";
+
+    function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload  = () => resolve(reader.result.split(",")[1]);
+            reader.onerror = () => reject(new Error("No se pudo leer el archivo"));
+            reader.readAsDataURL(file);
+        });
+    }
+
+    document.getElementById("portalForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const btn    = document.getElementById("btnEnviar");
+        const msgOk  = document.getElementById("msg-success");
+        const msgErr = document.getElementById("msg-error");
+
+        msgOk.style.display  = "none";
+        msgErr.style.display = "none";
+        btn.disabled         = true;
+        btn.textContent      = "ENVIANDO…";
+
+        const archivo = document.getElementById("f_archivo").files[0];
+
+        try {
+            let fileBase64   = "";
+            let fileName     = "Sin archivo";
+            let fileMimeType = "";
+
+            if (archivo) {
+                if (archivo.size > 50 * 1024 * 1024) {
+                    throw new Error("El archivo supera 50 MB. Comprime el audio e intenta de nuevo.");
+                }
+                fileBase64   = await fileToBase64(archivo);
+                fileName     = archivo.name;
+                fileMimeType = archivo.type || "audio/mpeg";
+            }
+
+            const payload = JSON.stringify({
+                artista:      document.getElementById("f_artista").value,
+                track:        document.getElementById("f_track").value,
+                servicio:     document.getElementById("f_servicio").value,
+                referencias:  document.getElementById("f_referencias").value,
+                notas:        document.getElementById("f_notas").value,
+                email:        document.getElementById("f_email").value,
+                folderId:     DRIVE_FOLDER_ID,
+                fileName:     fileName,
+                fileMimeType: fileMimeType,
+                fileBase64:   fileBase64
+            });
+
+            const res  = await fetch(APPS_SCRIPT_URL, {
+                method:  "POST",
+                headers: { "Content-Type": "text/plain" },
+                body:    payload
+            });
+
+            const text = await res.text();
+            let json = {};
+            try { json = JSON.parse(text); } catch(_) {}
+
+            if (!res.ok || json.status === "error") {
+                throw new Error(json.message || "Respuesta inesperada del servidor.");
+            }
+
+            msgOk.style.display = "block";
+            document.getElementById("portalForm").reset();
+            msgOk.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        } catch (err) {
+            msgErr.innerHTML     = "❌ " + (err.message || "Hubo un error. Intenta de nuevo.");
+            msgErr.style.display = "block";
+            msgErr.scrollIntoView({ behavior: "smooth", block: "center" });
+        } finally {
+            btn.disabled    = false;
+            btn.textContent = "ENVIAR A REVISIÓN";
+        }
+    });
+</script>
 </body>
 </html>
